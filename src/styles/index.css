@@ -1,0 +1,71 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* 全局书页质感样式 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 
+               'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* 避免横向裁切导致安卓上按钮被挤出视口 */
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* 移动端点击反馈：避免部分 WebView 中按钮「看不见」或延迟响应 */
+button,
+[role='button'] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(166, 124, 82, 0.2);
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 3D透视效果 */
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+.perspective-\[2000px\] {
+  perspective: 2000px;
+}
+
+/* 书页纹理背景 */
+.paper-texture {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(166, 124, 82, 0.02) 2px,
+      rgba(166, 124, 82, 0.02) 4px
+    );
+}
+
+/* 选中文本颜色 */
+::selection {
+  background-color: rgba(166, 124, 82, 0.3);
+  color: #4A3F35;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F3;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4BFA0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A67C52;
+}
