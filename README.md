@@ -31,4 +31,14 @@ npm run dev:full
 npm run build
 ```
 
-产物在 `dist/`，可部署到任意静态托管。
+产物在 `dist/`，可部署到任意静态托管（如 GitHub Pages、Vercel、Netlify）。仓库已含 `vercel.json`，用于 SPA 路由回退到 `index.html`。
+
+## Git 与远程仓库
+
+本地已配置远程 `origin` 指向本仓库。首次或网络恢复后推送：
+
+```bash
+git push -u origin main
+```
+
+若尚未登录 GitHub，请使用 **Personal Access Token** 作为 HTTPS 密码，或配置 [SSH 密钥](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh)。**切勿**将 `.env`（含 API 密钥）提交入库；`.gitignore` 已排除。
