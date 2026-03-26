@@ -292,36 +292,28 @@ export default function BookGeneratingOverlay() {
       </div>
 
       <motion.p
-        className="text-[#8B7E74] text-sm text-center max-w-xs leading-relaxed px-4 mb-2"
+        className="text-[#8B7E74] text-sm text-center max-w-xs leading-relaxed px-4 mb-5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
       >
         请稍候，正在用内置模板整理您的问卷，生成导演分镜与旁白。
       </motion.p>
-      <motion.p
-        className="text-[#B8866B] text-xs text-center px-6 mb-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-      >
-        全部在浏览器本地完成，无需联网密钥。
-      </motion.p>
 
       <motion.div
         className="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-xs"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
+        transition={{ delay: 1.2 }}
       >
         {floatingWords.map((word, index) => (
           <motion.span
             key={word}
-            className="text-[#D4BFA0]"
+            className="text-[#6B5E54]"
             style={{ fontFamily: 'serif', fontSize: '1.1rem' }}
             initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 0.35, scale: 1 }}
-            transition={{ delay: 2 + index * 0.22, duration: 0.85 }}
+            animate={{ opacity: 0.82, scale: 1 }}
+            transition={{ delay: 1.6 + index * 0.22, duration: 0.85 }}
           >
             {word}
           </motion.span>
