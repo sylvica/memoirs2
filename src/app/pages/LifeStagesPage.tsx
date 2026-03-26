@@ -370,19 +370,26 @@ export default function LifeStagesPage() {
         className="fixed bottom-0 left-0 right-0 z-50"
         style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
       >
-        <div className="bg-white border-t border-[#E8DCC8] shadow-[0_-4px_24px_rgba(74,63,53,0.12)] px-3 sm:px-4 py-3">
-          <div className="max-w-2xl mx-auto flex flex-wrap gap-2 sm:gap-3 items-center justify-center">
+        <div className="bg-white border-t border-[#E8DCC8] shadow-[0_-4px_24px_rgba(74,63,53,0.12)] px-2 sm:px-4 py-3">
+          {/* 单行不换行；极窄屏可横向轻滑查看全部按钮 */}
+          <div
+            className={cn(
+              'max-w-2xl mx-auto flex flex-nowrap items-center justify-center gap-1.5 sm:gap-3',
+              'overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none]',
+              '[&::-webkit-scrollbar]:hidden',
+            )}
+          >
 
             <Button
               variant="outline"
               onClick={goPrev}
               className={cn(
                 memoirOutline,
-                'shrink-0 min-w-[6.5rem] flex items-center justify-center gap-2 px-3 sm:px-4',
+                'shrink-0 min-w-[5.25rem] sm:min-w-[6.5rem] flex items-center justify-center gap-1.5 px-2.5 sm:px-4 py-3',
               )}
             >
-              <ChevronLeft className="w-5 h-5 shrink-0" />
-              <span className="whitespace-nowrap">上一步</span>
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span className="whitespace-nowrap text-sm sm:text-base">上一步</span>
             </Button>
 
             {!isLast ? (
@@ -390,11 +397,11 @@ export default function LifeStagesPage() {
                 onClick={goNext}
                 className={cn(
                   memoirPrimary,
-                  'flex-1 min-w-[min(100%,10rem)] flex items-center justify-center gap-2 py-3.5 shadow-md',
+                  'shrink-0 min-w-[6.5rem] sm:min-w-[9rem] flex items-center justify-center gap-1.5 px-3 sm:px-5 py-3 shadow-md',
                 )}
               >
-                <span className="whitespace-nowrap">下一步</span>
-                <ChevronRight className="w-5 h-5 shrink-0" />
+                <span className="whitespace-nowrap text-sm sm:text-base">下一步</span>
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               </Button>
             ) : (
               <Button
@@ -402,11 +409,11 @@ export default function LifeStagesPage() {
                 disabled={isGenerating}
                 className={cn(
                   memoirPrimary,
-                  'flex-1 min-w-[min(100%,10rem)] flex items-center justify-center gap-2 py-3.5 shadow-md',
+                  'shrink-0 min-w-[7.5rem] sm:min-w-[11rem] flex items-center justify-center gap-1.5 px-2.5 sm:px-5 py-3 shadow-md',
                 )}
               >
-                <Sparkles className="w-5 h-5 shrink-0" />
-                <span className="whitespace-nowrap">生成回忆录</span>
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span className="whitespace-nowrap text-sm sm:text-base">生成回忆录</span>
               </Button>
             )}
 
@@ -415,7 +422,7 @@ export default function LifeStagesPage() {
               onClick={handleSaveDraft}
               className={cn(
                 memoirOutline,
-                'shrink-0 min-w-[4.5rem] px-3 sm:px-4 flex items-center justify-center gap-1 transition-all',
+                'shrink-0 min-w-[3.75rem] sm:min-w-[4.5rem] px-2 sm:px-4 py-3 flex items-center justify-center gap-1 transition-all',
                 saveStatus === 'saved' && 'border-green-400 text-green-700',
               )}
             >
